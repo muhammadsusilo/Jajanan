@@ -4,14 +4,20 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import "./index.css"
 import HomePage from './pages/Home'
 import MakananPage from './layout/Makanan'
+import MinumanPage from './pages/Minuman'
 
 const router = createBrowserRouter ([
   {
     path:"/",
     element: <HomePage />
-  },{
-    path:"/",
+  },
+  {
+    path:"Makanan",
     element: <MakananPage />
+  },
+  {
+    path:"Minuman",
+    element: <MinumanPage />
   },
 ])
 
