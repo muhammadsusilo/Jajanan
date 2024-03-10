@@ -2,6 +2,16 @@
     display: none;
 }
 
+.arrow {
+    margin-top: -2.2rem;
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.arrow:hover {
+    color: #fff;
+}
+
 @media (max-width:870px) {
     .shop {
         display: flex;

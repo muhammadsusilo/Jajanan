@@ -8,7 +8,6 @@ const MinumanPage = () => {
             <CartProduct key={minum.id}>
                <CartProduct.HeaderCart image={minum.image} />
                <CartProduct.BodyCart nama={minum.title}>
-
                </CartProduct.BodyCart>
                <CartProduct.FooterCart price={minum.price}/>
             </CartProduct>
