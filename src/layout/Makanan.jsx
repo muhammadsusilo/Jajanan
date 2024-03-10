@@ -4,7 +4,7 @@ import makanJajan from "./data2"
 
 const MakananPage = () => {
    return (
-      <div className=" flex flex-wrap"> 
+      <div className="home flex flex-wrap"> 
          {makanJajan.map(makan => (
             <CartProduct key={makan.id}>
                <CartProduct.HeaderCart image={makan.image} />

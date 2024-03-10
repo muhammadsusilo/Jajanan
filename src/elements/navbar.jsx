@@ -1,8 +1,6 @@
-
-
+import { CiShop } from "react-icons/ci";
 
 const Navbar = () =>{
-   // const[Children]= props;
    return (
       <div className="flex justify-evenly  items-center py-4 bg-blue-700">
          <HeaderNav />
@@ -22,9 +20,9 @@ const HeaderNav = () => {
 const BodyNav = () => {
    return (
       <div>
-         <ul className="flex gap-10 font-xl flex-row items-center">
-         
-         </ul>
+         <div className="shop">
+            <CiShop />
+         </div>
       </div>
    )
 }

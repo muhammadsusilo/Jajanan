@@ -1,0 +1,23 @@
+.shop {
+    display: none;
+}
+
+@media (max-width:870px) {
+    .shop {
+        display: flex;
+    }
+    .cart {
+        display: none;
+        width: 0;
+        margin: 0;
+    }
+    .dasboard {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .home {
+        justify-content: center;
+    }
+}

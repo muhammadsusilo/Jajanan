@@ -10,7 +10,7 @@ const homePage = () =>{
       <div>
          <Navbar />
          <div className="flex">
-            <div className="w-3/4">
+            <div className="dasboard w-3/4">
                <div>
                   <div className=" flex m-5 mb-0 bg-blue-500 rounded-sm px-2 py-1">
                      <IoFastFood />
@@ -26,7 +26,7 @@ const homePage = () =>{
                   <MinumanPage/>
                </div>
             </div>
-            <div className="w-1/5 m-5">
+            <div className="cart  w-1/5 m-5">
                <p>Cart</p>
             </div>
          </div>
