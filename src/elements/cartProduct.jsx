@@ -1,20 +1,20 @@
-
+import Button from "./button";
 
 const CartProduct = (props) => {
    const {children} = props;
    return (
-      <div>
+      <div  className="flex flex-col w-full max-w-64 border border-slate-300 rounded-lg m-5">
          {children}
       </div>
    )
 }
 
 const HeaderCart = (props) => {
-   const {image, alt}= props;
+   const { image }= props;
 return (
    <div>
          <div className="">
-            <img src={image} alt={alt}
+            <img src={image} alt="Product"
             className="rounded-t-lg object-cover"
             />
          </div>

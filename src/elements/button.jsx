@@ -4,7 +4,6 @@ const Button = (props) => {
       <button className="bg-blue-600 px-3  py-1 rounded-lg">
          {children}
       </button>
-
    )
 }
 

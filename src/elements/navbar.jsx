@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import { IoFastFood } from "react-icons/io5";
-import { MdFastfood } from "react-icons/md";
+
 
 
 const Navbar = () =>{
@@ -25,14 +23,7 @@ const BodyNav = () => {
    return (
       <div>
          <ul className="flex gap-10 font-xl flex-row items-center">
-            <div className=" flex gap-2">
-               <IoFastFood />
-               <Link to ="">Makanan </Link>
-            </div>
-            <div className="flex gap-2">
-               <MdFastfood />
-               <Link to =""> Minuman </Link>
-            </div>
+         
          </ul>
       </div>
    )

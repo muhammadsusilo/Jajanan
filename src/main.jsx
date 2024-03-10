@@ -4,7 +4,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import "./index.css"
 import HomePage from './pages/Home'
 import MakananPage from './layout/Makanan'
-import MinumanPage from './pages/Minuman'
+import MinumanPage from './layout/Minuman'
 
 const router = createBrowserRouter ([
   {
