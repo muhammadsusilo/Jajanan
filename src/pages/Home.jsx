@@ -12,16 +12,16 @@ const homePage = () =>{
          <div className="flex">
             <div className="w-3/4">
                <div>
-                  <div className=" flex m-5 mb-0">
+                  <div className=" flex m-5 mb-0 bg-blue-500 rounded-sm px-2 py-1">
                      <IoFastFood />
-                     <Link to ="/Makanan">Makanan </Link>
+                     <Link to ="/">Makanan </Link>
                   </div>
                   <MakananPage/>
                </div>
                <div>
-                  <div className="flex m-5 ">
+                  <div className="flex m-5 bg-blue-500 rounded-sm px-2 py-1">
                      <MdFastfood />
-                     <Link to ="/Minuman"> Minuman </Link>
+                     <Link to ="/"> Minuman </Link>
                   </div>
                   <MinumanPage/>
                </div>
