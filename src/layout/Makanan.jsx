@@ -1,4 +1,3 @@
-
 import CartProduct from "../elements/cartProduct";
 import makanJajan from "./data2"
 
@@ -11,9 +10,9 @@ const MakananPage = () => {
                <CartProduct.BodyCart nama={makan.title}>
 
                </CartProduct.BodyCart>
-               <CartProduct.FooterCart price={makan.price}/>
+               <CartProduct.FooterCart price={makan.price} />
             </CartProduct>
-         )
+            )
          )}
       </div>
    )

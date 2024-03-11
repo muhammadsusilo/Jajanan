@@ -6,6 +6,7 @@ import { IoFastFood } from "react-icons/io5";
 import { MdFastfood } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { useState } from "react";
+import CartHasil from "../elements/cartHasil";
 
 
 const homePage = () =>{
@@ -43,7 +44,7 @@ const homePage = () =>{
                </div>
             </div>
             <div className="cart w-1/5 m-5">
-               <p>Cart</p>
+               <CartHasil />
             </div>
          </div>
       </div>

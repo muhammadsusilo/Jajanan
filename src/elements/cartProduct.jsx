@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "./button";
 
 const CartProduct = (props) => {
@@ -37,14 +38,27 @@ const BodyCart = (props) => {
 
 const FooterCart = (props) => {
    const {price} = props;
+   const [muncul, setMuncul] = useState(false)
    return (
       <div>
          <div className="flex justify-evenly pb-4 items-center ">
             <p>{price}</p>
-            <Button>Detail</Button>
+            <Button
+            onClick={() => setMuncul(!muncul)}
+            >
+            {muncul ? detail() : ""}
+               Detail
+            </Button>
             <Button>Cart</Button>
          </div>
       </div>
+   )
+}
+
+function detail() {
+   return (
+      alert("Fitur ini Masih dalam pengembangan")
+      // <div></div>
    )
 }
 
