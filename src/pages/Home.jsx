@@ -15,11 +15,14 @@ const homePage = () =>{
    return (
       <div>
          <Navbar />
-         <div className="flex">
+         <div className="">
             <div className="dasboard w-3/4">
-               <div> 
-                  <div className="flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1">
+               <div className=""> 
+                  <div className="garis flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1">
+                    <div>
                      <IoFastFood />
+
+                    </div>
                      <Link to ="/">Makanan </Link>
                   </div>
                   <div className="arrow  flex items-end justify-end"
@@ -30,8 +33,8 @@ const homePage = () =>{
                   {answer ? <div> <MakananPage/></div> : "" }
                   
                </div>
-               <div>
-                  <div className="flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1">
+               <div className="">
+                  <div className="garis flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1">
                      <MdFastfood />
                      <Link to ="/"> Minuman </Link>
                   </div>
