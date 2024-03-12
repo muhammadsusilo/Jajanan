@@ -1,8 +1,8 @@
 const Button = (props) => {
-   const {children,id} =props;
+   const {children, onClick, type = "button"} =props;
    return ( 
       <button className="bg-blue-600 px-3  py-1 rounded-lg"
-       id={id}
+       type={type} onClick={onClick}
       >
          {children}
       </button>

@@ -1,10 +1,10 @@
-import { useState } from "react";
 import Button from "./button";
+import { Link } from "react-router-dom";
 
 const CartProduct = (props) => {
    const {children} = props;
    return (
-      <div  className="flex flex-col w-full max-w-64 border border-slate-300 rounded-lg m-5">
+      <div  className="flex flex-col w-full max-w-64 border border-slate-300 rounded-lg ml-5 mt-5">
          {children}
       </div>
    )
@@ -14,11 +14,11 @@ const HeaderCart = (props) => {
    const { image }= props;
 return (
    <div>
-         <div className="">
+         <Link to={``}>
             <img src={image} alt="Product"
             className="rounded-t-lg object-cover"
             />
-         </div>
+         </Link>
    </div>
 )
 
@@ -37,30 +37,29 @@ const BodyCart = (props) => {
 }
 
 const FooterCart = (props) => {
-   const {price} = props;
-   const [muncul, setMuncul] = useState(false)
+   const {price, addCart,id} = props;
+   const detail = () => {
+      window.location.href="/handleDetail"
+   }
+
    return (
       <div>
          <div className="flex justify-evenly pb-4 items-center ">
-            <p>{price}</p>
+            <p>
+               Rp.{" "}
+               {price.toLocaleString("id-ID", {styles:"currency",currency:"IDR"})}
+            </p>
             <Button
-            onClick={() => setMuncul(!muncul)}
+            onClick={detail}
             >
-            {muncul ? detail() : ""}
                Detail
             </Button>
-            <Button>Cart</Button>
+            <Button onClick={() => addCart(id)}>Cart</Button>
          </div>
       </div>
    )
 }
 
-function detail() {
-   return (
-      alert("Fitur ini Masih dalam pengembangan")
-      // <div></div>
-   )
-}
 
 CartProduct.HeaderCart = HeaderCart;
 CartProduct.BodyCart = BodyCart;
