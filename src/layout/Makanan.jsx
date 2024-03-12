@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartProduct from "../elements/cartProduct";
 import makanJajan from "./data2"
 import Navbar from "../elements/navbar";
@@ -6,11 +6,31 @@ import Navbar from "../elements/navbar";
 const MakananPage = () => {
    const [jajan, setJajan] = useState(makanJajan)
    const [cart, setCart] = useState([
-      {
-         m_id :1,
-         qty : 1,
-      },
+      // {
+      //    m_id :1,
+      //    qty : 1,
+      // },
    ])
+   const[totalPrice, setTotalPrice]= useState(0)
+   useEffect(() =>{
+      setCart(JSON.parse(localStorage.getItem("cart")) || [])
+   }, [])
+
+   useEffect(() =>{
+     if(cart.length > 0){
+      const sum = cart.reduce((acc, item) => {
+         const product = jajan.find(jajan => 
+            jajan.m_id === item.m_id
+            );
+         return acc + product.price * item.qty
+      }, 0);
+      setTotalPrice(sum);
+      localStorage.setItem("cart", JSON.stringify(cart));
+     }else {
+
+     }
+   }, [cart])
+
    const addCart = (m_id) => {
       if(cart.find(item => item.m_id === m_id)){
          setCart(
@@ -58,7 +78,7 @@ const MakananPage = () => {
                   {cart.map((item)=>{
                      const product = jajan.find( jajan =>jajan.m_id === item.m_id );
                      return (
-                        <tr key={item.id}>
+                        <tr key={item.m_id}>
                            <td>{product.title}</td>
                            <td>
                               Rp.{" "}
@@ -71,6 +91,19 @@ const MakananPage = () => {
                         </tr>
                      )
                   })}
+                  <tr>
+                     <td colSpan={3}>
+                        <b>
+                           Total Price
+                        </b>
+                     </td>
+                     <td>
+                        <b>
+                           Rp.{" "}
+                           {totalPrice.toLocaleString("id-ID", {styles:"currency", currency : "IDR"})}
+                        </b>
+                     </td>
+                  </tr>
                </tbody>
             </table>
          </div>
