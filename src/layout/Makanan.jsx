@@ -24,7 +24,7 @@ const MakananPage = () => {
    return (
       
       <div>
-         <Navbar />
+         {/* <Navbar /> */}
          <div className="flex">
          <div className="home flex flex-wrap w-8/12"> 
             {jajan.map(makan => (
