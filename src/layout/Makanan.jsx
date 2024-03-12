@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CartProduct from "../elements/cartProduct";
 import makanJajan from "./data2"
+import Navbar from "../elements/navbar";
 
 const MakananPage = () => {
    const [jajan, setJajan] = useState(makanJajan)
@@ -18,17 +19,13 @@ const MakananPage = () => {
       } else {
          setCart([...cart, {m_id, qty: 1}])
       }
-      // setCart([
-      //    ...cart,
-      //    {
-      //       m_id : jajan,
-      //       qty : 1,
-      //    }
-      // ])
    }
 
    return (
-      <div className="flex">
+      
+      <div>
+         <Navbar />
+         <div className="flex">
          <div className="home flex flex-wrap w-8/12"> 
             {jajan.map(makan => (
                <CartProduct key={makan.m_id}>
@@ -77,6 +74,7 @@ const MakananPage = () => {
                </tbody>
             </table>
          </div>
+      </div>
       </div>
    )
 }

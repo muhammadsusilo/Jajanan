@@ -3,22 +3,17 @@ import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import "./index.css"
 import "./style.css"
-import HomePage from './pages/Home'
+// import HomePage from './pages/Home'
 import MakananPage from './layout/Makanan'
-import MinumanPage from './layout/Minuman'
 
 const router = createBrowserRouter ([
   {
     path:"/",
-    element: <HomePage />
+    // element: <HomePage />
   },
   {
     path:"Makanan",
     element: <MakananPage />
-  },
-  {
-    path:"Minuman",
-    element: <MinumanPage />
   },
 ])
 

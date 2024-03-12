@@ -31,6 +31,36 @@ const makanJajan = [{
    dibentuk bulat kecil,
    dan direbus.Setelah matang,
    cenil biasanya disajikan dengan taburan gula dan kelapa parut.`
+}, {
+    m_id: 6,
+    title: "Es Kelapa Muda",
+    price: 17000,
+    image: "../../public/assets/img/eskelapa.jpg",
+    description: `Minuman yang terbuat dari air kelapa muda yang dicampur dengan es dan kadang-kadang diberi tambahan sirup atau buah.`
+}, {
+    m_id: 7,
+    title: "Es Teler",
+    price: 17000,
+    image: "../../public/assets/img/esteler.jpg",
+    description: `Minuman yang terdiri dari campuran potongan buah seperti alpukat, kelapa muda, nangka, es serut, yang kemudian dituangi dengan susu kental manis dan sirup.`
+}, {
+    m_id: 8,
+    title: "Wedang Jahe",
+    price: 17000,
+    image: "../../public/assets/img/wedangjahe.jpg",
+    description: `Minuman hangat yang terbuat dari jahe segar yang direbus dengan air dan ditambah gula aren atau gula merah. Biasanya disajikan saat cuaca dingin atau sebagai obat tradisional untuk menghangatkan tubuh.`
+}, {
+    m_id: 9,
+    title: "Es Cendol",
+    price: 17000,
+    image: "../../public/assets/img/escendol.jpg",
+    description: `Minuman manis yang terbuat dari campuran tepung beras, santan, gula merah cair, dan adonan hijau yang terbuat dari tepung ketan. Biasanya disajikan bersama es serut.`
+}, {
+    m_id: 10,
+    title: "Es Doger",
+    price: 17000,
+    image: "../../public/assets/img/esdoger.jpg",
+    description: `Minuman dingin yang terbuat dari campuran kelapa parut, santan, tape ketan hitam, dan sirup merah. Biasanya disajikan bersama es serut.`
 }, ]
 
 export default makanJajan;

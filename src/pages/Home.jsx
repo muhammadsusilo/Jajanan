@@ -6,7 +6,7 @@ import { IoFastFood } from "react-icons/io5";
 import { MdFastfood } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { useState } from "react";
-// import CartHasil from "../elements/cartHasil";
+import CartHasil from "../elements/cartHasil";
 
 
 const homePage = () =>{
