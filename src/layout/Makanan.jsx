@@ -3,14 +3,9 @@ import CartProduct from "../elements/cartProduct";
 import makanJajan from "./data2"
 import Navbar from "../elements/navbar";
 
-const MakananPage = () => {
+const MakananPage = ({title}) => {
    const [jajan, setJajan] = useState(makanJajan)
-   const [cart, setCart] = useState([
-      // {
-      //    m_id :1,
-      //    qty : 1,
-      // },
-   ])
+   const [cart, setCart] = useState([])
    const[totalPrice, setTotalPrice]= useState(0)
    useEffect(() =>{
       setCart(JSON.parse(localStorage.getItem("cart")) || [])
@@ -46,20 +41,41 @@ const MakananPage = () => {
       <div>
          {/* <Navbar /> */}
          <div className="flex">
-         <div className="home flex flex-wrap w-8/12"> 
-            {jajan.map(makan => (
+         <div  className="home flex w-8/12"> 
+            < Makanan jajan={jajan} AddToCart={addCart}/> 
+         </div>
+         <div className="cart w-2/6 m-5 border border-slate-300 rounded-lg">
+            <CartPage cart={cart} totalPrice={totalPrice} jajan={jajan} title="Cart">
+
+            </CartPage>
+         </div>
+      </div>
+      </div>
+   )
+}
+
+const Makanan = ({jajan, AddToCart}) => {
+   return (
+      <div className=" flex flex-wrap">
+         {jajan.map(makan => (
                <CartProduct key={makan.m_id}>
                   <CartProduct.HeaderCart image={makan.image} />
                   <CartProduct.BodyCart nama={makan.title}>
                   </CartProduct.BodyCart>
-                  <CartProduct.FooterCart price={makan.price} id={makan.m_id} addCart={addCart}>
+                  <CartProduct.FooterCart price={makan.price} id={makan.m_id} addCart={AddToCart}>
                   </CartProduct.FooterCart>
                </CartProduct>
                )
             )}
-         </div>
-         <div className="cart w-2/6 m-5 border border-slate-300 rounded-lg">
-            <h2 className="font-bold text-blue-500 text-3xl ml-5 my-2">Cart</h2>
+      </div>
+   )
+}
+
+const CartPage = ({cart, totalPrice, jajan},props) => {
+   const {title} = props;
+   return (
+      <div>
+         <h2 className="font-bold text-blue-500 text-3xl ml-5 my-2">{title}</h2>
             {/* <ul>
                {cart.map(item => (
                   <li key={item.m_id}>{item.m_id}</li>
@@ -86,7 +102,7 @@ const MakananPage = () => {
                            </td>
                            <td>{item.qty}</td>
                            <td>
-                           Rp.{" "}
+                              Rp.{" "}
                               {(product.price * item.qty).toLocaleString("id-ID", {styles:"currency", currency : "IDR"})}</td>
                         </tr>
                      )
@@ -106,8 +122,6 @@ const MakananPage = () => {
                   </tr>
                </tbody>
             </table>
-         </div>
-      </div>
       </div>
    )
 }
