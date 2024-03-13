@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import CartProduct from "../elements/cartProduct";
 import makanJajan from "./data2"
 import Navbar from "../elements/navbar";
+import { IoFastFood } from "react-icons/io5";
+import { FaArrowAltCircleDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MakananPage = ({title}) => {
    const [jajan, setJajan] = useState(makanJajan)
    const [cart, setCart] = useState([])
    const[totalPrice, setTotalPrice]= useState(0)
+   const [answer, setAnswer] = useState(true);
    useEffect(() =>{
       setCart(JSON.parse(localStorage.getItem("cart")) || [])
    }, [])
@@ -37,21 +41,43 @@ const MakananPage = ({title}) => {
    }
 
    return (
-      
-      <div>
-         {/* <Navbar /> */}
-         <div className="flex">
-         <div  className="home flex w-8/12"> 
-            < Makanan jajan={jajan} AddToCart={addCart}/> 
+     <div>
+       <Navbar />
+       <div className="flex">
+         <div className="home flex w-8/12">
+           <div>
+             <div className="garis flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1">
+               <div>
+                 <IoFastFood />
+               </div>
+               <Link to="/">Makanan </Link>
+             </div>
+             <div
+               className="arrow  flex items-end justify-end"
+               onClick={() => setAnswer(!answer)}
+             >
+               <FaArrowAltCircleDown />
+             </div>
+             {answer ? (
+               <div>
+                 {" "}
+                 <Makanan jajan={jajan} AddToCart={addCart} />
+               </div>
+             ) : (
+               ""
+             )}
+           </div>
          </div>
          <div className="cart w-2/6 m-5 border border-slate-300 rounded-lg">
-            <CartPage cart={cart} totalPrice={totalPrice} jajan={jajan} title="Cart">
-
-            </CartPage>
+           <CartPage
+             cart={cart}
+             totalPrice={totalPrice}
+             jajan={jajan}
+           ></CartPage>
          </div>
-      </div>
-      </div>
-   )
+       </div>
+     </div>
+   );
 }
 
 const Makanan = ({jajan, AddToCart}) => {
@@ -71,59 +97,82 @@ const Makanan = ({jajan, AddToCart}) => {
    )
 }
 
-const CartPage = ({cart, totalPrice, jajan},props) => {
-   const {title} = props;
+const CartPage = ({cart, totalPrice, jajan}) => {
    return (
-      <div>
-         <h2 className="font-bold text-blue-500 text-3xl ml-5 my-2">{title}</h2>
-            {/* <ul>
+     <div>
+       <h2 className="font-bold text-blue-500 text-3xl ml-5 my-2">Cart</h2>
+       {/* <ul>
                {cart.map(item => (
                   <li key={item.m_id}>{item.m_id}</li>
                ))}
             </ul> */}
-            <table className="text-left table-auto border-separate border-spacing-x-5">
-               <thead >
-                  <tr>
-                     <th>Product</th>
-                     <th>Price</th>
-                     <th>Quantity</th>
-                     <th>Total</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {cart.map((item)=>{
-                     const product = jajan.find( jajan =>jajan.m_id === item.m_id );
-                     return (
-                        <tr key={item.m_id}>
-                           <td>{product.title}</td>
-                           <td>
-                              Rp.{" "}
-                              {product.price.toLocaleString("id-ID", {styles:"currency",currency:"IDR"})}
-                           </td>
-                           <td>{item.qty}</td>
-                           <td>
-                              Rp.{" "}
-                              {(product.price * item.qty).toLocaleString("id-ID", {styles:"currency", currency : "IDR"})}</td>
-                        </tr>
-                     )
-                  })}
-                  <tr>
-                     <td colSpan={3}>
-                        <b>
-                           Total Price
-                        </b>
-                     </td>
-                     <td>
-                        <b>
-                           Rp.{" "}
-                           {totalPrice.toLocaleString("id-ID", {styles:"currency", currency : "IDR"})}
-                        </b>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-      </div>
-   )
+       <table className="text-left table-auto border-separate border-spacing-x-5">
+         <TheadTable />
+         <tbody>
+           {cart.map((item) => {
+             const product = jajan.find((jajan) => jajan.m_id === item.m_id);
+             return (
+               <tr key={item.m_id}>
+                 <td>{product.title}</td>
+                 <td>
+                   Rp.{" "}
+                   {product.price.toLocaleString("id-ID", {
+                     styles: "currency",
+                     currency: "IDR",
+                   })}
+                 </td>
+                 <td>{item.qty}</td>
+                 <td>
+                   Rp.{" "}
+                   {(product.price * item.qty).toLocaleString("id-ID", {
+                     styles: "currency",
+                     currency: "IDR",
+                   })}
+                 </td>
+               </tr>
+             );
+           })}
+
+           <TrTable totalPrice={totalPrice} />
+         </tbody>
+       </table>
+     </div>
+   );
 }
 
+const TheadTable = () => {
+   return (
+     <thead>
+       <tr>
+         <th>Product</th>
+         <th>Price</th>
+         <th>Quantity</th>
+         <th>Total</th>
+       </tr>
+     </thead>
+   );
+
+}
+
+const TrTable = ({totalPrice}) => {
+   return (
+     <tr>
+       <td colSpan={3}>
+         <b>Total Price</b>
+       </td>
+       <td>
+         <b>
+           Rp.{" "}
+           {totalPrice.toLocaleString("id-ID", {
+             styles: "currency",
+             currency: "IDR",
+           })}
+         </b>
+       </td>
+     </tr>
+   );
+}
+
+MakananPage.Makanan = Makanan;
+MakananPage.CartPage = CartPage;
 export default MakananPage;
