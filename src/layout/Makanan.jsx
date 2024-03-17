@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CartProduct from "../elements/cartProduct";
 import makanJajan from "./data2"
 import Navbar from "../elements/navbar";
+import { CiShop } from "react-icons/ci";
 import { IoFastFood } from "react-icons/io5";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -11,6 +12,7 @@ const MakananPage = ({title}) => {
    const [cart, setCart] = useState([])
    const[totalPrice, setTotalPrice]= useState(0)
    const [answer, setAnswer] = useState(true);
+    const [open, setOpen] = useState(true);
    useEffect(() =>{
       setCart(JSON.parse(localStorage.getItem("cart")) || [])
    }, [])
@@ -42,15 +44,20 @@ const MakananPage = ({title}) => {
 
    return (
      <div>
-       <Navbar />
+       <div>
+         <Navbar />
+         <BodyNav />
+       </div>
        <div className="flex">
-         <div className="home flex w-8/12">
+         <div className=" flex w-8/12">
            <div>
-             <div className="garis flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1">
-               <div>
-                 <IoFastFood />
+             <div>
+               <div className="garis flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1">
+                 <div>
+                   <IoFastFood />
+                 </div>
+                 <Link to="/">Makanan </Link>
                </div>
-               <Link to="/">Makanan </Link>
              </div>
              <div
                className="arrow  flex items-end justify-end"
@@ -64,15 +71,17 @@ const MakananPage = ({title}) => {
                  <Makanan jajan={jajan} AddToCart={addCart} />
                </div>
              ) : (
-               ""
+               " "
              )}
            </div>
          </div>
-         <div className="cart w-2/6 m-5 border border-slate-300 rounded-lg">
+         <div className=" w-2/6 m-5 border border-slate-300 rounded-lg">
            <CartPage
              cart={cart}
              totalPrice={totalPrice}
              jajan={jajan}
+             open={open}
+             setOpen={setOpen}
            ></CartPage>
          </div>
        </div>
@@ -97,9 +106,18 @@ const Makanan = ({jajan, AddToCart}) => {
    )
 }
 
-const CartPage = ({cart, totalPrice, jajan}) => {
+const CartPage = ({cart, totalPrice, jajan, open,setOpen, handleClick}) => {
+
+
+   function handleClick() {
+     setOpen((open) => !open);
+   }
+
    return (
-     <div>
+     <div
+       className={
+       `cartpage bg-white w-screen h-screen ${open ? "active" : ""}`}
+     >
        <h2 className="font-bold text-blue-500 text-3xl ml-5 my-2">Cart</h2>
        {/* <ul>
                {cart.map(item => (
@@ -172,7 +190,18 @@ const TrTable = ({totalPrice}) => {
      </tr>
    );
 }
-
+const BodyNav = ({handleClick}) => {
+ 
+  return (
+    <div>
+      <div className="shop" onClick={handleClick}
+      >
+        <CiShop />
+        {console.info("clik ini")}
+      </div>
+    </div>
+  );
+};
 MakananPage.Makanan = Makanan;
 MakananPage.CartPage = CartPage;
 export default MakananPage;

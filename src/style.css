@@ -12,9 +12,22 @@
     color: #fff;
 }
 
+.muncul {
+    display: none;
+}
+
 @media (max-width:870px) {
     .shop {
         display: flex;
+        font-size: 2rem;
+        background-color: rgb(96 165 250);
+        width: min-content;
+        padding: 1rem;
+        margin-left: 1.5rem;
+        border-radius: 20px;
+    }
+    .shop:hover {
+        background-color: rgb(37 99 235);
     }
     .cart {
         display: none;
@@ -30,7 +43,35 @@
     .garis {
         width: 95vw;
     }
-    .home {
+    .active {
+        position: absolute;
+        background-color: #fff;
+        margin-left: -18rem;
+        width: 67%;
+        height: 100vh;
+        border-radius: 10px;
+        right: -100%;
+    }
+    .cartpage {
+        right: 0;
+    }
+    /* .home {
         justify-content: center;
+        width: 100%;
+    } */
+}
+
+@media (max-width:470px) {
+    html {
+        font-size: 65%;
+    }
+    .cartpage {
+        width: 80%;
+    }
+}
+
+@media(max-width:310px) {
+    .cartpage {
+        width: 90%;
     }
 }
