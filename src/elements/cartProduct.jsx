@@ -39,7 +39,7 @@ const BodyCart = (props) => {
 const FooterCart = (props) => {
    const {price, addCart,id} = props;
    const detail = () => {
-      window.location.href="/handleDetail"
+      alert("Sorry, This feature in development")
    }
 
    return (
