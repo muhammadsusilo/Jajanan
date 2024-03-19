@@ -53,7 +53,7 @@ const MakananPage = ({ title }) => {
                 <div>
                   <IoFastFood />
                 </div>
-                <Link to="/">Makanan </Link>
+                <Link to="/"> Aneka Jajanan </Link>
               </div>
             </div>
             <div
@@ -73,7 +73,9 @@ const MakananPage = ({ title }) => {
           </div>
         </div>
         <div className=" boxresult w-2/6 m-5 border border-slate-300 rounded-lg">
-          <CartPage cart={cart} totalPrice={totalPrice} jajan={jajan}>
+          <CartPage 
+          cart={cart} totalPrice={totalPrice} jajan={jajan}>
+
           </CartPage>
         </div>
       </div>
