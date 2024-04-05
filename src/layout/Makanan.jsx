@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CartProduct from "../elements/cartProduct";
-import makanJajan from "./data2";
+import makanJajan from "../data";
 import Navbar from "../elements/navbar";
 import { CiShop } from "react-icons/ci";
 import { IoFastFood } from "react-icons/io5";
