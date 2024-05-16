@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import CartProduct from "../elements/cartProduct";
-import makanJajan from "../data";
-import Navbar from "../elements/navbar";
-import { CiShop } from "react-icons/ci";
-import { IoFastFood } from "react-icons/io5";
-import { FaArrowAltCircleDown } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import CartProduct from '../elements/cartProduct';
+import makanJajan from '../data';
+import Navbar from '../elements/navbar';
+import { CiShop } from 'react-icons/ci';
+import { IoFastFood } from 'react-icons/io5';
+import { FaArrowAltCircleDown } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const MakananPage = ({ title }) => {
   const [jajan, setJajan] = useState(makanJajan);
@@ -13,7 +13,7 @@ const MakananPage = ({ title }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [answer, setAnswer] = useState(true);
   useEffect(() => {
-    setCart(JSON.parse(localStorage.getItem("cart")) || []);
+    setCart(JSON.parse(localStorage.getItem('cart')) || []);
   }, []);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const MakananPage = ({ title }) => {
         return acc + product.price * item.qty;
       }, 0);
       setTotalPrice(sum);
-      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
     } else {
     }
   }, [cart]);
@@ -32,8 +32,8 @@ const MakananPage = ({ title }) => {
     if (cart.find((item) => item.m_id === m_id)) {
       setCart(
         cart.map((item) =>
-          item.m_id === m_id ? { ...item, qty: item.qty + 1 } : item
-        )
+          item.m_id === m_id ? { ...item, qty: item.qty + 1 } : item,
+        ),
       );
     } else {
       setCart([...cart, { m_id, qty: 1 }]);
@@ -46,10 +46,10 @@ const MakananPage = ({ title }) => {
         <Navbar />
       </div>
       <div className="flex">
-        <div className=" boxcart flex w-8/12">
+        <div className=" boxcart flex w-6/12 xl:w-4/12 sm:640px text-center flex justify-center items-center">
           <div>
             <div>
-              <div className="garis flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1">
+              <div className="garis flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1 ">
                 <div>
                   <IoFastFood />
                 </div>
@@ -57,27 +57,28 @@ const MakananPage = ({ title }) => {
               </div>
             </div>
             <div
-              className="arrow  flex items-end justify-end"
+              className="arrow flex items-end justify-end"
               onClick={() => setAnswer(!answer)}
             >
               <FaArrowAltCircleDown />
             </div>
             {answer ? (
               <div>
-                {" "}
+                {' '}
                 <Makanan jajan={jajan} AddToCart={addCart} />
               </div>
             ) : (
-              " "
+              ' '
             )}
           </div>
         </div>
-        <div className=" boxresult w-2/6 m-5 border border-slate-300 rounded-lg">
-          <CartPage 
-          cart={cart} totalPrice={totalPrice} jajan={jajan}>
-
-          </CartPage>
-        </div>
+        {/* <div className=" w-2/5 m-5 border border-slate-300 rounded-lg">
+          <CartPage
+            cart={cart}
+            totalPrice={totalPrice}
+            jajan={jajan}
+          ></CartPage>
+        </div> */}
       </div>
     </div>
   );
@@ -101,7 +102,7 @@ const Makanan = ({ jajan, AddToCart }) => {
   );
 };
 
-const CartPage = ({cart,totalPrice,jajan }) => {
+const CartPage = ({ cart, totalPrice, jajan }) => {
   const [open, setOpen] = useState(false);
 
   function handleClick() {
@@ -119,7 +120,7 @@ const CartPage = ({cart,totalPrice,jajan }) => {
 
 const TableCart = ({ cart, totalPrice, jajan }) => {
   return (
-    <div className="bg-white w-screen h-screen">
+    <div className="hilang bg-white w-full h-fit">
       <h2 className="font-bold text-blue-500 text-3xl ml-5 my-2">Cart</h2>
       <table className="text-left table-auto border-separate border-spacing-x-5">
         <TheadTable />
@@ -130,18 +131,18 @@ const TableCart = ({ cart, totalPrice, jajan }) => {
               <tr key={item.m_id}>
                 <td>{product.title}</td>
                 <td>
-                  Rp.{" "}
-                  {product.price.toLocaleString("id-ID", {
-                    styles: "currency",
-                    currency: "IDR",
+                  Rp.{' '}
+                  {product.price.toLocaleString('id-ID', {
+                    styles: 'currency',
+                    currency: 'IDR',
                   })}
                 </td>
                 <td>{item.qty}</td>
                 <td>
-                  Rp.{" "}
-                  {(product.price * item.qty).toLocaleString("id-ID", {
-                    styles: "currency",
-                    currency: "IDR",
+                  Rp.{' '}
+                  {(product.price * item.qty).toLocaleString('id-ID', {
+                    styles: 'currency',
+                    currency: 'IDR',
                   })}
                 </td>
               </tr>
@@ -175,10 +176,10 @@ const TrTable = ({ totalPrice }) => {
       </td>
       <td>
         <b>
-          Rp.{" "}
-          {totalPrice.toLocaleString("id-ID", {
-            styles: "currency",
-            currency: "IDR",
+          Rp.{' '}
+          {totalPrice.toLocaleString('id-ID', {
+            styles: 'currency',
+            currency: 'IDR',
           })}
         </b>
       </td>
