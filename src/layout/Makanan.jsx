@@ -46,7 +46,7 @@ const MakananPage = ({ title }) => {
         <Navbar />
       </div>
       <div className="flex">
-        <div className=" boxcart flex w-6/12 xl:w-4/12 sm:640px text-center flex justify-center items-center">
+        <div className=" boxcart flex w-3/5	 xl:w-4/12 sm:640px text-center flex justify-center items-center">
           <div>
             <div>
               <div className="garis flex items-center gap-1 m-5 mb-2 bg-blue-500 rounded-sm px-2 py-1 ">
@@ -72,13 +72,13 @@ const MakananPage = ({ title }) => {
             )}
           </div>
         </div>
-        {/* <div className=" w-2/5 m-5 border border-slate-300 rounded-lg">
-          <CartPage
+        <div className=" w-1/3 m-5 border border-slate-300 rounded-lg">
+          {/* <CartPage
             cart={cart}
             totalPrice={totalPrice}
             jajan={jajan}
-          ></CartPage>
-        </div> */}
+          ></CartPage> */}
+        </div>
       </div>
     </div>
   );

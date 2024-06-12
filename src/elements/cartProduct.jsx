@@ -14,7 +14,7 @@ const HeaderCart = (props) => {
    const { image }= props;
 return (
    <div>
-         <Link to={``}>
+         <Link to="#">
             <img src={image} alt="Product"
             className="rounded-t-lg object-cover"
             />
